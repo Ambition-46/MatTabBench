@@ -1,8 +1,7 @@
 # 面向海量稀疏材料数据库 Text-to-SQL 查全能力评测数据集 —— 实验代码仓库
 
 本仓库汇总《面向海量稀疏材料数据库文本转结构化查询语言任务的查全能力评测数据集》
-（Scientific Data 数据描述论文）所涉及的全部实验代码，按论文中的实验类别重新组织为
-以下目录（目录命名与原工作目录不同，文件级名称保持不变，便于对照追溯）。
+所涉及的全部实验代码。
 
 所有实验均基于最终评测库 **MySQL `smart_small`**（43 个数据集 / 2,138 条实体记录 /
 30,462 条数值记录 / 245 个属性）执行。
@@ -19,8 +18,7 @@
 ├── 05_boundary_condition_testing/         # 技术验证：查全率边界测试（smart_small 全库扫描 == 金标准）
 ├── 06_semantic_consistency_review/        # 语义一致性检查与人工评审辅助
 ├── 07_sparsity_distribution_analysis/     # 技术验证：数据库稀疏性与分布质量评估（smart_small）
-├── 08_question_statistics_figures/        # 问题分类统计、运行时间测量与论文图表生成
-└── tools/                                 # 验证与调试工具
+└── 08_question_statistics_figures/        # 问题分类统计、运行时间测量与论文图表生成
 ```
 
 ## 论文实验 ↔ 目录 ↔ 代码对照
@@ -29,7 +27,7 @@
 
 | 文件 | 说明 | 原始位置 |
 |---|---|---|
-| `sql_nl_test_samples_500_result_data.json` | 最终 500 样本评测集（`sample_id` / `natural_language` / `sql` / `result` / `result_data`），对应论文中 `sql_nl_test_samples_500.json` 的完整版 | `实验修改/` |
+| `sql_nl_test_samples_500_result_data.json` | 最终 500 样本评测集（`sample_id` / `natural_language` / `result` / `result_data`），对应论文中评测集文件的完整版 | `实验修改/` |
 | `entity_table.sql` / `property_table.sql` / `value_table.sql` | 底层数据库三表导出（43 个数据集，`data_id` / `property_id` / `value` 统一映射） | `评测集/中间/` |
 
 ### 01_data_integration_standardization/ —— 方法·数据来源与数据集成标准化
