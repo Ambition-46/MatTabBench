@@ -1,0 +1,554 @@
+=== Sample 32 ===
+REPL_NL: n型电子热导率 为 0.0 和 2.74 之间的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=132 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) BETWEEN 0.0 AND 2.74 ORDER BY e.data_id ASC
+ORIG_NL: n型电子热导率 为 2.730727 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v ON v.data_id = e.data_id
+WHERE v.property_id = 132
+    AND v.value != ''
+    AND v.value IS NOT NULL
+    AND CAST(v.value AS DECIMAL(30, 15)) = 2.730727
+ORDER BY e.data_id ASC;
+
+=== Sample 34 ===
+REPL_NL: n型载流子浓度 为 10.27 和 10.28 之间的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=129 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) BETWEEN 10.27 AND 10.28 ORDER BY e.data_id ASC
+ORIG_NL: n型载流子浓度 为 10.271104 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v ON v.data_id = e.data_id
+WHERE v.property_id = 129
+    AND v.value != ''
+    AND v.value IS NOT NULL
+    AND CAST(v.value AS DECIMAL(30, 15)) = 10.271104
+ORDER BY e.data_id ASC;
+
+=== Sample 35 ===
+REPL_NL: n型载流子浓度为 -175.1 和 -127.8之间且泽贝克系数为 -127.8 和 -175.1 之间的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=129 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) BETWEEN -175.1 AND -127.8 ORDER BY e.data_id ASC
+ORIG_NL: n型载流子浓度为 1.74423 且具体的泽贝克系数(n-type)为 -179.70363 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 129 AND CAST(v1.value AS DECIMAL(30, 15)) = 1.74423
+    AND v2.property_id = 130 AND CAST(v2.value AS DECIMAL(30, 15)) = -179.70363
+ORDER BY e.data_id ASC;
+
+=== Sample 37 ===
+REPL_NL: n型载流子浓度为 164.9 和 201.4 之间且p型泽贝克系数为 164.9 和 201.4 之间的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=129 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: n型载流子浓度为 0.277376 且p型泽贝克系数为 180.18486 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 129 AND CAST(v1.value AS DECIMAL(30, 15)) = 0.277376
+    AND v2.property_id = 126 AND CAST(v2.value AS DECIMAL(30, 15)) = 180.18486
+ORDER BY e.data_id ASC;
+
+=== Sample 39 ===
+REPL_NL: n型载流子浓度大于1.54小于1.6且n型电子热导率为7.7和7.8之间的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=129 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: n型载流子浓度为 1.540176 且n型电子热导率为 7.747008 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 129 AND CAST(v1.value AS DECIMAL(30, 15)) = 1.540176
+    AND v2.property_id = 132 AND CAST(v2.value AS DECIMAL(30, 15)) = 7.747008
+ORDER BY e.data_id ASC;
+
+=== Sample 60 ===
+REPL_NL: 金属大气腐蚀中材料牌号为A5083（1）的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 高铁材料服役大数据采集与计算-金属大气腐蚀中材料牌号为6005A的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v ON v.data_id = e.data_id
+WHERE v.property_id = 1
+    AND e.title IN ('高铁材料服役大数据采集与计算-金属大气腐蚀')
+    AND v.value = '6005A'
+ORDER BY e.data_id ASC;
+
+=== Sample 90 ===
+REPL_NL: 材料牌号为 A5083（1） 且地点为 海南 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 材料牌号为 7B05 且地理位置.地点为 海南 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = '7B05'
+    AND v2.property_id = 137 AND v2.value = '海南'
+ORDER BY e.data_id ASC;
+
+=== Sample 92 ===
+REPL_NL: 材料牌号为 A5083（1） 且地点为 武汉 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 材料牌号为 6005A 且地理位置.地点为 武汉 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = '6005A'
+    AND v2.property_id = 137 AND v2.value = '武汉'
+ORDER BY e.data_id ASC;
+
+=== Sample 137 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 770 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 SLB4140 80KSI 且抗拉强度为 770 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = 'SLB4140 80KSI'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 770
+ORDER BY e.data_id ASC;
+
+=== Sample 141 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 586 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 HQ369117 且抗拉强度为 586 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = 'HQ369117'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 586
+ORDER BY e.data_id ASC;
+
+=== Sample 145 ===
+REPL_NL: 样品名称为 772702 且抗拉强度为 545 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 772702 且抗拉强度为 545 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND CAST(v1.value AS DECIMAL(30, 15)) = 772702
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 545
+ORDER BY e.data_id ASC;
+
+=== Sample 149 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 525 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 HQ373101 且抗拉强度为 525 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = 'HQ373101'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 525
+ORDER BY e.data_id ASC;
+
+=== Sample 153 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 1040 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 SLB4140 125KSI 且抗拉强度为 1040 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = 'SLB4140 125KSI'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 1040
+ORDER BY e.data_id ASC;
+
+=== Sample 157 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 535 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 HQ364227 (A1-2) 且抗拉强度为 535 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = 'HQ364227 (A1-2)'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 535
+ORDER BY e.data_id ASC;
+
+=== Sample 160 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 537 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 HQ371043 且抗拉强度为 537 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = 'HQ371043'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 537
+ORDER BY e.data_id ASC;
+
+=== Sample 164 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 515 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 Q345D 且抗拉强度为 515 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = 'Q345D'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 515
+ORDER BY e.data_id ASC;
+
+=== Sample 172 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 533 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 HQ365794 Line 30 且抗拉强度为 533 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = 'HQ365794 Line 30'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 533
+ORDER BY e.data_id ASC;
+
+=== Sample 175 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 478 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 冷轧板 且抗拉强度为 478 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = '冷轧板'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 478
+ORDER BY e.data_id ASC;
+
+=== Sample 176 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 560 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 Q345D 且抗拉强度为 560 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = 'Q345D'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 560
+ORDER BY e.data_id ASC;
+
+=== Sample 180 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 1152 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 HQ327905 4way cross pipe-2# 且抗拉强度为 1152 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = 'HQ327905 4way cross pipe-2#'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 1152
+ORDER BY e.data_id ASC;
+
+=== Sample 184 ===
+REPL_NL: 样品名称为 A5083（1） 且抗拉强度为 510 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 样品名称为 电焊条 J506 且抗拉强度为 510 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = '电焊条 J506'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 510
+ORDER BY e.data_id ASC;
+
+=== Sample 205 ===
+REPL_NL: 请筛选满足Ta含量在0.2到2.59之间的钴基高温合金
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=107 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.2 ORDER BY e.data_id ASC
+ORIG_NL: 请筛选满足Ta含量在2.4196到2.5868之间的钴基高温合金
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v ON v.data_id = e.data_id
+WHERE v.property_id = 107
+    AND e.title IN ('钴基高温合金成分与相组成')
+    AND v.value != ''
+    AND v.value IS NOT NULL
+    AND CAST(v.value AS DECIMAL(30, 15)) BETWEEN 2.4196 AND 2.5868
+ORDER BY e.data_id ASC;
+
+=== Sample 210 ===
+REPL_NL: 请筛选满足Ta含量在0.2到3.18之间的钴基高温合金
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=107 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.2 ORDER BY e.data_id ASC
+ORIG_NL: 请筛选满足Ta含量在3.0823到3.1795之间的钴基高温合金
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v ON v.data_id = e.data_id
+WHERE v.property_id = 107
+    AND e.title IN ('钴基高温合金成分与相组成')
+    AND v.value != ''
+    AND v.value IS NOT NULL
+    AND CAST(v.value AS DECIMAL(30, 15)) BETWEEN 3.0823 AND 3.1795
+ORDER BY e.data_id ASC;
+
+=== Sample 212 ===
+REPL_NL: Ta含量为0.2的钴基高温合金有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=107 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.2 ORDER BY e.data_id ASC
+ORIG_NL: Ta含量为1.1的钴基高温合金有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v ON v.data_id = e.data_id
+WHERE v.property_id = 107
+    AND e.title IN ('钴基高温合金成分与相组成')
+    AND CAST(v.value AS DECIMAL(30, 15)) = 1.1
+ORDER BY e.data_id ASC;
+
+=== Sample 215 ===
+REPL_NL: Ti含量为4的钴基高温合金有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=56 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: Ti含量为4的钴基高温合金有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v ON v.data_id = e.data_id
+WHERE v.property_id = 56
+    AND e.title IN ('钴基高温合金成分与相组成')
+    AND CAST(v.value AS DECIMAL(30, 15)) = 4
+ORDER BY e.data_id ASC;
+
+=== Sample 216 ===
+REPL_NL: Ti含量为1.1的钴基高温合金有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=56 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: Ti含量为1.1的钴基高温合金有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v ON v.data_id = e.data_id
+WHERE v.property_id = 56
+    AND e.title IN ('钴基高温合金成分与相组成')
+    AND CAST(v.value AS DECIMAL(30, 15)) = 1.1
+ORDER BY e.data_id ASC;
+
+=== Sample 256 ===
+REPL_NL: 剪切速率为27.0且材料成分为正己烷-75wt%PCS的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=162 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 剪切速率为27.0且材料成分为莰烯-DVB-5wt%PCS的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 162 AND CAST(v1.value AS DECIMAL(30, 15)) = 27.0
+    AND v2.property_id = 224 AND v2.value = '莰烯-DVB-5wt%PCS'
+ORDER BY e.data_id ASC;
+
+=== Sample 257 ===
+REPL_NL: 剪切速率为316.2且材料成分为正己烷-75wt%PCS的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=162 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 剪切速率为316.2且材料成分为正己烷-75wt%PCS-0.05wt%SiCw的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 162 AND CAST(v1.value AS DECIMAL(30, 15)) = 316.2
+    AND v2.property_id = 224 AND v2.value = '正己烷-75wt%PCS-0.05wt%SiCw'
+ORDER BY e.data_id ASC;
+
+=== Sample 260 ===
+REPL_NL: 剪切速率为1.0且材料成分为正己烷-75wt%PCS的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=162 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 剪切速率为1.0且材料成分为莰烯-15wt%PCS的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 162 AND CAST(v1.value AS DECIMAL(30, 15)) = 1.0
+    AND v2.property_id = 224 AND v2.value = '莰烯-15wt%PCS'
+ORDER BY e.data_id ASC;
+
+=== Sample 264 ===
+REPL_NL: 剪切速率为19.95且粘度值为26.54的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=162 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 剪切速率为19.95且粘度值为26.54的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 162 AND CAST(v1.value AS DECIMAL(30, 15)) = 19.95
+    AND v2.property_id = 163 AND CAST(v2.value AS DECIMAL(30, 15)) = 26.54
+ORDER BY e.data_id ASC;
+
+=== Sample 306 ===
+REPL_NL: 铬为0.91 %且钢号为A5083（1）的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=58 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 铬为0.91 %且钢号为19CN5的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 58 AND CAST(v1.value AS DECIMAL(30, 15)) = 0.91
+    AND v2.property_id = 1 AND v2.value = '19CN5'
+ORDER BY e.data_id ASC;
+
+=== Sample 307 ===
+REPL_NL: 铬为14 %且钢号为A5083（1）的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=58 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 铬为14 %且钢号为0Cr14Ni40W4Mo2Ti3Al2的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 58 AND CAST(v1.value AS DECIMAL(30, 15)) = 14
+    AND v2.property_id = 1 AND v2.value = '0Cr14Ni40W4Mo2Ti3Al2'
+ORDER BY e.data_id ASC;
+
+=== Sample 313 ===
+REPL_NL: 钢号为A5083（1）且性能.比热为548 J/kg·℃的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 钢号为20SiMnVB且性能.比热为548 J/kg·℃的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = '20SiMnVB'
+    AND v2.property_id = 11 AND CAST(v2.value AS DECIMAL(30, 15)) = '548'
+ORDER BY e.data_id ASC;
+
+=== Sample 338 ===
+REPL_NL: 在特殊钢-物理性能-比热的数据集中，钢号为 70 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 在特殊钢-物理性能-比热的数据集中，钢号为 70 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v ON v.data_id = e.data_id
+WHERE e.title = '特殊钢-物理性能-比热'
+    AND v.property_id = 1
+    AND v.value = '70'
+ORDER BY e.data_id ASC;
+
+=== Sample 352 ===
+REPL_NL: 在特殊钢-物理性能-比热的数据集中，钢号为A5083（1）且试验温度为573的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 在特殊钢-物理性能-比热的数据集中，钢号为H62且试验温度为573的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE e.title = '特殊钢-物理性能-比热'
+    AND v1.property_id = 1 AND v1.value = 'H62'
+    AND v2.property_id = 134 AND CAST(v2.value AS DECIMAL(30, 15)) = 573
+ORDER BY e.data_id ASC;
+
+=== Sample 356 ===
+REPL_NL: 在特殊钢-物理性能-比热的数据集中，钢号为70且硅为0.26 %的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 在特殊钢-物理性能-比热的数据集中，钢号为70且硅为0.26 %的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE e.title = '特殊钢-物理性能-比热'
+    AND v1.property_id = 1 AND v1.value = '70'
+    AND v2.property_id = 48 AND CAST(v2.value AS DECIMAL(30, 15)) = 0.26
+ORDER BY e.data_id ASC;
+
+=== Sample 360 ===
+REPL_NL: 在特殊钢-物理性能-比热的数据集中，磷为0.01且铁为0.15的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=49 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 在特殊钢-物理性能-比热的数据集中，磷为0.01且铁为0.15的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE e.title = '特殊钢-物理性能-比热'
+    AND v1.property_id = 49 AND CAST(v1.value AS DECIMAL(30, 15)) = 0.01
+    AND v2.property_id = 60 AND CAST(v2.value AS DECIMAL(30, 15)) = 0.15
+ORDER BY e.data_id ASC;
+
+=== Sample 361 ===
+REPL_NL: 在特殊钢-物理性能-比热的数据集中，钢号为A5083（1）且比热为377的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 在特殊钢-物理性能-比热的数据集中，钢号为H62且比热为377的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE e.title = '特殊钢-物理性能-比热'
+    AND v1.property_id = 1 AND v1.value = 'H62'
+    AND v2.property_id = 11 AND CAST(v2.value AS DECIMAL(30, 15)) = 377
+ORDER BY e.data_id ASC;
+
+=== Sample 403 ===
+REPL_NL: 剪切速率为68.0的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=162 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 剪切速率为68.0的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v ON v.data_id = e.data_id
+WHERE v.property_id = 162
+    AND CAST(v.value AS DECIMAL(30, 15)) = 68.0
+ORDER BY e.data_id ASC;
+
+=== Sample 407 ===
+REPL_NL: 泊松比在0.2以上的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=26 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.2 ORDER BY e.data_id ASC
+ORIG_NL: 测试条件为20℃-steady flow且剪切速率为0.1112的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 159 AND v1.value = '20℃-steady flow'
+    AND v2.property_id = 162 AND CAST(v2.value AS DECIMAL(30, 15)) = 0.1112
+ORDER BY e.data_id ASC;
+
+=== Sample 441 ===
+REPL_NL: Mo为1.39%且炉批号为16223270213的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=76 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: Mo为1.39%且炉批号为16223270213的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id FROM smart_mged.entity_table e JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id WHERE v1.property_id = 76 AND CAST(v1.value AS DECIMAL(30, 15)) = 1.39 AND v2.property_id = 5 AND v2.value = '16223270213' ORDER BY e.data_id ASC;
+
+=== Sample 443 ===
+REPL_NL: 低倍检验为“γ+γ'+TCP”且材料牌号为A5083（1）的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 低倍检验为“中心疏松1级，锭型偏析1级”且材料牌号为Cr12Mo1V1的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id FROM smart_mged.entity_table e JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id WHERE v1.property_id = 14 AND v1.value = '中心疏松1级，锭型偏析1级' AND v2.property_id = 1 AND v2.value = 'Cr12Mo1V1' ORDER BY e.data_id ASC;
+
+=== Sample 445 ===
+REPL_NL: 材料牌号为A5083（1）且炉批号为16203111341的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 材料牌号为4Cr5MoSiV1且炉批号为16203111341的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id FROM smart_mged.entity_table e JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id WHERE v1.property_id = 1 AND v1.value = '4Cr5MoSiV1' AND v2.property_id = 5 AND v2.value = '16203111341' ORDER BY e.data_id ASC;
+
+=== Sample 451 ===
+REPL_NL: 材料牌号为A5083（1）且V为0.3%的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 材料牌号为4Cr13NiVSi且V为0.3%的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id FROM smart_mged.entity_table e JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id WHERE v1.property_id = 1 AND v1.value = '4Cr13NiVSi' AND v2.property_id = 57 AND CAST(v2.value AS DECIMAL(30, 15)) = 0.3 ORDER BY e.data_id ASC;
+
+=== Sample 457 ===
+REPL_NL: Mo为2.11%且腐蚀速率为0.0188552003237419的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=76 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: Mo为2.11%且腐蚀速率为电炉+LF+VD的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id FROM smart_mged.entity_table e JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id WHERE v1.property_id = 76 AND CAST(v1.value AS DECIMAL(30, 15)) = 2.11 AND v2.property_id = 148 AND v2.value = '电炉+LF+VD' ORDER BY e.data_id ASC;
+
+=== Sample 458 ===
+REPL_NL: 材料牌号为A5083（1）且腐蚀速率为0.0188552003237419的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 材料牌号为Cr8Mo2VSi且腐蚀速率为电炉+LF+VD的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id FROM smart_mged.entity_table e JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id WHERE v1.property_id = 1 AND v1.value = 'Cr8Mo2VSi' AND v2.property_id = 148 AND v2.value = '电炉+LF+VD' ORDER BY e.data_id ASC;
+
+=== Sample 475 ===
+REPL_NL: 有哪些激光表面处理IF钢截面硬度的相对位置X落在100-250区间且硬度HV处于142-182范围？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=157 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 有哪些激光表面处理IF钢截面硬度的相对位置X落在100-250区间且硬度HV处于142-182范围？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE e.title = '激光表面处理IF钢截面硬度'
+    AND v1.property_id = 157
+    AND v1.value != '' AND v1.value IS NOT NULL
+    AND CAST(v1.value AS DECIMAL(30, 15)) BETWEEN 100 AND 250
+    AND v2.property_id = 27
+    AND v2.value != '' AND v2.value IS NOT NULL
+    AND CAST(v2.value AS DECIMAL(30, 15)) BETWEEN 142 AND 182
+ORDER BY e.data_id ASC;
+
+=== Sample 497 ===
+REPL_NL: A5083（1） 且抗拉强度为 450 的数据有哪些？
+REPL_SQL: SELECT DISTINCT e.data_id FROM smart_small.entity_table e JOIN smart_small.value_table v ON v.data_id=e.data_id WHERE v.property_id=1 AND v.value!='' AND v.value IS NOT NULL AND CAST(v.value AS DECIMAL(30,15)) > 0.0 ORDER BY e.data_id ASC
+ORIG_NL: 电焊条 J422 且抗拉强度为 450 的样本有哪些？
+ORIG_SQL: SELECT DISTINCT e.data_id
+FROM smart_mged.entity_table e
+JOIN smart_mged.value_table v1 ON v1.data_id = e.data_id
+JOIN smart_mged.value_table v2 ON v2.data_id = e.data_id
+WHERE v1.property_id = 1 AND v1.value = '电焊条 J422'
+    AND v2.property_id = 22 AND CAST(v2.value AS DECIMAL(30, 15)) = 450
+ORDER BY e.data_id ASC;
+

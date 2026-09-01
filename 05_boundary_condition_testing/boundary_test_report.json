@@ -1,0 +1,113 @@
+{
+  "timestamp": "2026-08-30T11:54:27.793561",
+  "database": "smart_small",
+  "sample_file": "/Users/ambition/Desktop/科研任务/论文/评测集/Code/GitHub/05_boundary_condition_testing/../data/sql_nl_test_samples_500_result_data.json",
+  "total_samples": 500,
+  "boundary_summary": {
+    "total_boundary_queries": 588,
+    "by_type": {
+      "greater": {
+        "count": 253,
+        "properties": 91
+      },
+      "greater_equal": {
+        "count": 43,
+        "properties": 49
+      },
+      "less": {
+        "count": 149,
+        "properties": 74
+      },
+      "less_equal": {
+        "count": 51,
+        "properties": 55
+      },
+      "range": {
+        "count": 92,
+        "properties": 54
+      }
+    }
+  },
+  "validation_results": [
+    {
+      "Boundary_Query_Subset": "Greater",
+      "Samples": 253,
+      "Properties_Covered": 91,
+      "Property_IDs": "1, 2, 3, 6, 7, 10, 11, 13...",
+      "Validation_Method": "Full Database Scan (smart_small) == Gold",
+      "Passed": 253,
+      "Failed": 0,
+      "Pass_Rate": "100.0%",
+      "Avg_Result_Count": "38",
+      "Max_Result_Count": 885,
+      "Min_Result_Count": 1
+    },
+    {
+      "Boundary_Query_Subset": "Greater Equal",
+      "Samples": 43,
+      "Properties_Covered": 49,
+      "Property_IDs": "1, 3, 10, 11, 15, 21, 22, 25...",
+      "Validation_Method": "Full Database Scan (smart_small) == Gold",
+      "Passed": 43,
+      "Failed": 0,
+      "Pass_Rate": "100.0%",
+      "Avg_Result_Count": "15",
+      "Max_Result_Count": 92,
+      "Min_Result_Count": 1
+    },
+    {
+      "Boundary_Query_Subset": "Less",
+      "Samples": 149,
+      "Properties_Covered": 74,
+      "Property_IDs": "1, 2, 3, 6, 9, 10, 11, 21...",
+      "Validation_Method": "Full Database Scan (smart_small) == Gold",
+      "Passed": 149,
+      "Failed": 0,
+      "Pass_Rate": "100.0%",
+      "Avg_Result_Count": "34",
+      "Max_Result_Count": 1162,
+      "Min_Result_Count": 1
+    },
+    {
+      "Boundary_Query_Subset": "Less Equal",
+      "Samples": 51,
+      "Properties_Covered": 55,
+      "Property_IDs": "1, 3, 9, 10, 11, 21, 22, 25...",
+      "Validation_Method": "Full Database Scan (smart_small) == Gold",
+      "Passed": 51,
+      "Failed": 0,
+      "Pass_Rate": "100.0%",
+      "Avg_Result_Count": "14",
+      "Max_Result_Count": 77,
+      "Min_Result_Count": 1
+    },
+    {
+      "Boundary_Query_Subset": "Range",
+      "Samples": 92,
+      "Properties_Covered": 54,
+      "Property_IDs": "1, 3, 5, 10, 11, 21, 22, 25...",
+      "Validation_Method": "Full Database Scan (smart_small) == Gold",
+      "Passed": 92,
+      "Failed": 0,
+      "Pass_Rate": "100.0%",
+      "Avg_Result_Count": "113",
+      "Max_Result_Count": 1361,
+      "Min_Result_Count": 1
+    }
+  ],
+  "validation_by_category": {
+    "simple": {
+      "total": 109,
+      "passed": 109,
+      "failed": 0,
+      "pass_rate": "100.0%"
+    },
+    "complex": {
+      "total": 479,
+      "passed": 479,
+      "failed": 0,
+      "pass_rate": "100.0%"
+    }
+  },
+  "failed_details": []
+}

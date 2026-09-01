@@ -1,0 +1,6 @@
+﻿Boundary_Query_Subset,Samples,Properties_Covered,Property_IDs,Validation_Method,Passed,Failed,Pass_Rate,Avg_Result_Count,Max_Result_Count,Min_Result_Count
+Greater,253,91,"1, 2, 3, 6, 7, 10, 11, 13...",Full Database Scan (smart_small) == Gold,253,0,100.0%,38,885,1
+Greater Equal,43,49,"1, 3, 10, 11, 15, 21, 22, 25...",Full Database Scan (smart_small) == Gold,43,0,100.0%,15,92,1
+Less,149,74,"1, 2, 3, 6, 9, 10, 11, 21...",Full Database Scan (smart_small) == Gold,149,0,100.0%,34,1162,1
+Less Equal,51,55,"1, 3, 9, 10, 11, 21, 22, 25...",Full Database Scan (smart_small) == Gold,51,0,100.0%,14,77,1
+Range,92,54,"1, 3, 5, 10, 11, 21, 22, 25...",Full Database Scan (smart_small) == Gold,92,0,100.0%,113,1361,1

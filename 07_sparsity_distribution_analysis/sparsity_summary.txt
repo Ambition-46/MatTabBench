@@ -1,0 +1,73 @@
+Sparsity analysis generated at: 2026-08-30T12:45:48.434865
+Num entities: 2138
+Num properties: 245
+Num entity-property pairs: 30462
+Density (pairs / (entities*properties)): 5.815467e-02
+
+Properties per entity: mean=14.248 median=15.000 min=4 max=30
+Histogram (entities by num properties): {'>10': 1504, '6-10': 483, '3-5': 151}
+
+Entities per property (all 245 properties, zero-coverage included): mean=124.335 median=50.000 min=0 max=1487
+Entities per property (only 173 covered properties): mean=176.081 median=50.000 min=1 max=1487
+Histogram (properties by entity coverage): {'>100': 60, '21-100': 85, '0': 72, '1': 5, '6-20': 14, '2-5': 9}
+
+Low coverage properties (<= thresholds):
+  <=1: 77 properties
+  <=5: 86 properties
+  <=10: 90 properties
+
+Query-involved properties: 108 unique properties referenced in 500 samples
+Sample of query properties coverage (property_id: entity_count)
+  1: 1487
+  2: 87
+  3: 193
+  5: 1121
+  6: 50
+  7: 53
+  9: 1
+  10: 50
+  11: 26
+  12: 53
+  13: 13
+  14: 50
+  15: 102
+  21: 192
+  22: 99
+  25: 150
+  26: 50
+  29: 167
+  30: 51
+  31: 270
+  32: 147
+  35: 56
+  39: 134
+  40: 1391
+  41: 214
+  42: 60
+  46: 137
+  47: 354
+  48: 1385
+  49: 1184
+  50: 1174
+  56: 425
+  57: 447
+  58: 1166
+  59: 1377
+  60: 289
+  61: 129
+  62: 889
+  63: 500
+  64: 110
+  74: 53
+  75: 288
+  76: 915
+  84: 40
+  107: 101
+  108: 274
+  119: 50
+  120: 50
+  121: 50
+  122: 50
+
+Result set sizes (samples): mean=46.474 median=9.000 min=1 max=1361
+Result size histogram samples: {'0': 0, '1': 122, '2-5': 80, '6-20': 141, '21-100': 133, '>100': 24}
