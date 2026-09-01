@@ -25,10 +25,10 @@
 
 ### data/ —— 论文"数据记录"部分
 
-| 文件 | 说明 | 原始位置 |
+| 文件 | 说明 | 备注 |
 |---|---|---|
-| `sql_nl_test_samples_500_result_data.json` | 最终 500 样本评测集（`sample_id` / `natural_language` / `result` / `result_data`），对应论文中评测集文件的完整版 | `实验修改/` |
-| `entity_table.sql` / `property_table.sql` / `value_table.sql` | 底层数据库三表导出（43 个数据集，`data_id` / `property_id` / `value` 统一映射） | `评测集/中间/` |
+| `sql_nl_test_samples_500_result_data.json` | 最终 500 样本评测集（`sample_id` / `natural_language` / `result` / `result_data`），对应论文中评测集文件的完整版 | `实验` |
+| `entity_table.sql` / `property_table.sql` / `value_table.sql` | 底层数据库三表导出（43 个数据集，`data_id` / `property_id` / `value` 统一映射） | `不公开` |
 
 ### 01_data_integration_standardization/ —— 方法·数据来源与数据集成标准化
 
@@ -145,26 +145,6 @@ NL-SQL-结果三元组一致性自动检查（运算符方向、条件匹配、�
 | `count_props_in_nl.py` | 统计 NL 问题涉及属性及名称 | 根目录 |
 | `generate_png.py` | 按问题类别的样本质量总览图 | `sample/` |
 | `analysis.txt` / `final_analysis.txt` | 问题分析结果（示例输出） | 根目录 |
-
-### tools/ —— 验证与调试工具
-
-| 文件 | 说明 | 原始位置 |
-|---|---|---|
-| `verify_gold_results.py` | 500 条 SQL 在 smart_small 重跑并与金标准 result 比对（一致性验证） | 本次整理新增 |
-| `debug_plot.py` | matplotlib/pandas 绘图环境自检 | 根目录 |
-| `debug_regex.py` | 正则表达式测试 | 根目录 |
-
-## 复现说明
-
-- 数据库环境：MySQL（`smart_small` 库，本机实测密码为 `12345678`，与部分脚本默认
-  `123456` 不同，运行时请以 `MYSQL_PASSWORD` 环境变量覆盖）。
-- 部分脚本内嵌 Windows 绝对路径（`f:\Study\...`），运行时请按本仓库相对路径调整。
-- 底层 43 个源数据集 JSON 与各类中间产物体积较大，未纳入本仓库；可用 `data/` 中
-  三表 SQL 重建数据库后复现全部执行实验（已验证：导入后重跑 500 条 SQL 与金标准
-  100% 一致，见 [VERIFICATION_REPORT.md](VERIFICATION_REPORT.md)）。
-- 被后续版本取代的旧脚本（根目录 `compute_sparsity.py` / `plot_sparsity.py`、
-  `稀疏性验证/debug_plot.py`）未收录，对应新版本见 `07_sparsity_distribution_analysis/`。
-- 实验结果与论文声明的一致性核验结论见 [VERIFICATION_REPORT.md](VERIFICATION_REPORT.md)。
 
 ## 代码可用性（Code Availability）
 
