@@ -13,7 +13,7 @@
 ├── data/                                  # 论文"数据记录"部分的数据文件
 ├── 01_data_integration_standardization/   # 数据来源整合与标准化（43 数据集、模式对齐、三表构建）
 ├── 02_query_sample_generation/            # 自然语言查询与 SQL 标注流程（三类模板、500 问题）
-├── 03_gold_standard_execution/            # 质量评估：执行准确率（EX）/ 金标准结果集生成
+├── 03_gold_standard_execution/            # 质量评估：金标准结果集生成
 ├── 04_sql_syntax_validation/              # 技术验证：SQL 结构化验证（EXPLAIN 语法校验）
 ├── 05_boundary_condition_testing/         # 技术验证：查全率边界测试（smart_small 全库扫描 == 金标准）
 ├── 06_semantic_consistency_review/        # 语义一致性检查与人工评审辅助
@@ -27,7 +27,7 @@
 
 | 文件 | 说明 | 备注 |
 |---|---|---|
-| `sql_nl_test_samples_500_result_data.json` | 最终 500 样本评测集（`sample_id` / `natural_language` / `result` / `result_data`），对应论文中评测集文件的完整版 | `实验` |
+| `sql_nl_test_samples_500_result_data.json` | 最终 500 样本评测集（`sample_id` / `natural_language` / `natural_language_en` /`result` / `result_data`），对应论文中评测集文件的完整版 | `实验` |
 | `entity_table.sql` / `property_table.sql` / `value_table.sql` | 底层数据库三表导出（43 个数据集，`data_id` / `property_id` / `value` 统一映射） | `不公开` |
 
 ### 01_data_integration_standardization/ —— 方法·数据来源与数据集成标准化
@@ -53,11 +53,9 @@ Entity / Attribute / Value 三表构建、三阶段数据清洗（字符过滤�
 
 | 文件 | 说明 | 原始位置 |
 |---|---|---|
-| `gen_sql.py` | 由自然语言问题生成 SQL（NL 术语 → property_id 全局映射） | `sample/` |
 | `regenerate_results.py` | 对修订样本重新执行 SQL 生成 result/result_data | `sample/` |
 | `update_sql_and_results.py` | 按 `bad_samples_sql_nl_mismatch.txt` 替换修正 SQL 并重新执行写回 result | `评测集修改/500/` |
 | `fix_500_samples.py` / `fix_500_v2.py` | 500 样本批量修复（含 smart_mged → smart_small 模式迁移） | 根目录 |
-| `bad_samples_*.txt` | 问题样本清单（修复输入） | `评测集修改/500/` |
 
 ### 03_gold_standard_execution/ —— 方法·质量评估（执行准确率 EX / 金标准）
 
@@ -68,12 +66,12 @@ Entity / Attribute / Value 三表构建、三阶段数据清洗（字符过滤�
 |---|---|---|
 | `run_sql_and_match_data.py` | 全部 SQL 在 MySQL 执行更新 result，并将 data_id 匹配到完整数据记录写回 result_data | 根目录 |
 | `run_sql_update.py` | 对替换版样本执行 SQL 更新 result 字段 | 根目录 |
-| `run_sql_and_update.py` | 对 0807 版样本执行 SQL 并覆盖 result | `评测集修改/500/0807/` |
+| `run_sql_and_update.py` | 对样本执行 SQL 并覆盖 result | `评测集修改/500/0807/` |
 | `update_results.py` / `rerun_3.py` | 执行 SQL 更新结果 / 重跑 3 条空结果样本 | 根目录 |
 | `match_500_data.py` / `match_result_data.py` | result 中 data_id → data 目录 JSON 记录（`_meta_id` / `meta.数据ID`）匹配出 result_data | 根目录 |
 | `fix_empty_results.py` | 修复 39 条空结果条目并重跑 | 根目录 |
 | `fix_result_data*.py`（v1~v4） | result_data 缺失/错配的多轮修复 | 根目录 |
-| `add_result_data.py` | 0807 版：删除 natural_language_en、为非聚合问题匹配完整数据记录 | `评测集修改/500/0807/` |
+| `add_result_data.py` | 为非聚合问题匹配完整数据记录 | `评测集修改/500/0807/` |
 | `export_empty_results.py` | 导出空结果样本清单 | 根目录 |
 
 ### 04_sql_syntax_validation/ —— 技术验证·查询逻辑的结构化验证
@@ -121,7 +119,7 @@ NL-SQL-结果三元组一致性自动检查（运算符方向、条件匹配、�
 每实体属性数 mean 14.25 / median 15（4~30）；
 每属性覆盖实体数（全部 245 个属性，0 覆盖计入）mean 124.3 / median 50（0~1,487），
 其中 72 个属性（29.4%）无任何数值记录；仅统计 173 个有值属性时 mean 176.1；
-500 样本涉及 108 个属性；结果集大小 mean 46.5 / median 9（1~1,361），无空结果样本。**
+500 样本涉及 108 个属性；结果集大小 mean 46.5 / median 9（1~1,361）。**
 
 | 文件 | 说明 | 原始位置 |
 |---|---|---|
@@ -137,7 +135,7 @@ NL-SQL-结果三元组一致性自动检查（运算符方向、条件匹配、�
 
 | 文件 | 说明 | 原始位置 |
 |---|---|---|
-| `classify_questions.py` | 500 问题按聚合/复杂/简单三分（早期版本） | 根目录 |
+| `classify_questions.py` | 500 问题按聚合/复杂/简单三分| 根目录 |
 | `classify_500_questions.py` | 最终版三分类：Simple / Complex Correlation / Aggregated Attribute Calculation | `实验修改/问题分类/` |
 | `classify_stats.py` | 各分类 SQL 平均 JOIN/WHERE 条件数、独立属性总数、结果集中位数 | `实验修改/统计不同分类信息/` |
 | `analyze_questions.py` / `analyze_problems.py` | 问题特征分析（聚合函数、比较算符等） | `questions/`、根目录 |
