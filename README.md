@@ -107,11 +107,12 @@ The main benchmark file is:
 sql_nl_test_samples_500_result_data.json
 ```
 
-Each benchmark sample contains five fields:
+Each benchmark sample contains six fields:
 
 | Field | Description |
 |---|---|
 | `sample_id` | Unique sample identifier |
+| `sql` | Manually annotated executable reference SQL statement corresponding to the natural-language query.|
 | `natural_language` | Finalized Chinese natural-language query |
 | `natural_language_en` | Manually checked English translation |
 | `result` | Human-verified reference execution result |
@@ -138,7 +139,7 @@ A simplified example is shown below:
 }
 ```
 
-Reference SQL statements are used as internal construction and validation artifacts and are not included as fields in the released benchmark samples.
+Reference SQL statements are released as benchmark annotations to support reproducibility and optional SQL-generation evaluation. The primary benchmark evaluation remains execution-result based, allowing semantically equivalent SQL statements to receive identical scores when they produce equivalent execution outputs.
 
 ---
 
